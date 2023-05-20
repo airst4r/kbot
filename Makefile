@@ -2,15 +2,25 @@ APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=sergesrj
 VERSION=$(shell git rev-parse --short HEAD)
 TARGETOS=linux
-TARGETARCH=arm64
+TARGETARCH=amd64
 format:
 	gofmt -s -w ./
 
 lint:
 	golint
-
+arch:
+	TARGETARCH=${TARGETARCH}
 test:
 	go test -v
+
+linux: arch
+	make build TARGETOS=linux TARGETARCH=${TARGETARCH}
+
+windows: arch
+	make build TARGETOS=windows TARGETARCH=${TARGETARCH}
+
+macos: arch
+	make build TARGETOS=darwin TARGETARCH=${TARGETARCH}
 
 build: format get
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.dev/airst4r/kbot/cmd.appVersion=${VERSION}
@@ -26,3 +36,4 @@ push:
 
 clean:
 	rm -rf kbot
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
