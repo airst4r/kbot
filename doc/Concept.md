@@ -28,3 +28,5 @@ k3d
     Verify that the cluster is running using the kubectl cluster-info command
     Deploy an example application using kubectl create deployment and kubectl expose deployment commands
     Access the application using the kubectl port-forward command or kubectl proxy command
+
+Demo record - https://asciinema.org/a/LvU6VLYGyJEER8bbEsUAFogSy
