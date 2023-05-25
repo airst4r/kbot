@@ -31,7 +31,26 @@ After successful install ArgoCD and login to web-interface - you may use ArgoCD 
 
 1. Create a Git repository that contains Kubernetes manifests for your application.
 2. Create a YAML-file, which contains information about application GIT-repository, application version, etc.:
-![alt text](argocd-deploy.yaml)
+``
+apiVersion: argocdproject.io/v1a1
+kind: Application
+metadata:
+  name: demo-app
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  source:
+    repoURL: https://github.com/den-vasyliev/go-demo-app.git
+    targetRevision: HEAD
+    path: kubernetes
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+``
 
 3. Apply YAML-file of application, using ``kubectl apply``:
 ``kubectl apply -f argocd-deploy.yaml``
