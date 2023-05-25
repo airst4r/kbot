@@ -47,25 +47,28 @@ rm argocd-linux-amd64
 3. You should now have command-line access to your ArgoCD server. You can use the `argocd` command to perform various tasks, such as syncing applications or viewing their status.
 
 ## Accessing the ArgoCD Interface
-![alt text](Screen1.png)
-![alt text](Screen2.png)
-![alt text](Screen3.png)
 
 
 1. Open a web browser and navigate to the ArgoCD URL.
+
+![alt text](Screen1.png)
 
 2. On the login screen, enter your username and password and click "Login".
 
 3. Once logged in, you will be directed to the ArgoCD dashboard.
 
+![alt text](Screen2.png)
+
 4. In the dashboard, you can view the status of your applications and repositories, as well as manage your clusters, settings, and user accounts.
 
-5. To view the details of a specific application or repository, click on its name in the dashboard.
+![alt text](Screen3.png)
 
-6. From the application or repository details page, you can view its current state, configuration, and deployment history.
+5. To view the details of a specific application or repository, click on name in the dashboard.
 
-7. To make changes to an application or repository, you can use the ArgoCD interface to modify its configuration, sync its state, or trigger a deployment.
+6. From the application or repository details page, you can view current state, configuration, and deployment history.
+
+7. To make changes to an application or repository, you can use the ArgoCD interface to modify configuration, sync state or trigger a deployment.
 
 8. If you encounter any issues while using the ArgoCD interface or command-line tool, you can refer to the ArgoCD documentation or contact your administrator for assistance.
 
-Note: The ArgoCD installation and configuration process may differ depending on your setup and environment.
+Note: The ArgoCD installation and configuration process may be different - depending on your setup and environment.
