@@ -30,8 +30,9 @@ Use login "admin" and password, received as output of previous command to login.
 After successful install ArgoCD and login to web-interface - you may use ArgoCD for deploying applications to Kubernetes. You may use WebUI or YAML-file for automaticaly deploying. Next steps show how-to configure deploy using YAML:
 
 1. Create a Git repository that contains Kubernetes manifests for your application.
+
 2. Create a YAML-file, which contains information about application GIT-repository, application version, etc.:
-``
+```yaml
 apiVersion: argocdproject.io/v1a1
 kind: Application
 metadata:
@@ -50,7 +51,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-``
+```
 
 3. Apply YAML-file of application, using ``kubectl apply``:
 ``kubectl apply -f argocd-deploy.yaml``
