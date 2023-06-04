@@ -44,7 +44,7 @@ jobs:
                 cmd: yq -i '.image.tag=strenv(VERSION)' helm/values.yaml
 
             - run:
-                git config user.name github-actions
-                git config user.email github-actions@github.com
+                git config user.name "github-actions"
+                git config user.email "github-actions@github.com"
                 git commit -am "update version $VERSION"
                 git push
