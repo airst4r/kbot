@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo
+  labels:
+    name: demo
+spec:
+  containers:
+  - name: demo
+    image: gcr.io/golden-memory-383208/demo:v1.0.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8000
