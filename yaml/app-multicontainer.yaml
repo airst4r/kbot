@@ -1,0 +1,19 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-nginx-and-oracle
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  - name: oracle
+    image: oraclelinux
+    command: ["/bin/bash", "-c"]
+    args:
+      - |
+        while true; do
+          ps -eo pid,comm,%mem --sort=-%mem | head -n 3 >> /usr/share/nginx/html/index.html
+          sleep 60
+        done
+  restartPolicy: Always

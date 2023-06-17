@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postgres-backup
+spec:
+  template:
+    spec:
+      containers:
+      - name: postgres-backup
+        image: postgres:latest
+        command: ["pg_dump"]
+        args: ["-U", "postgres", "-f", "/data-backup/postgres-backup.sql"]
+        volumeMounts:
+        - name: data-backup
+          mountPath: /data-backup
+      restartPolicy: Never
+      volumes:
+      - name: data-backup
+        persistentVolumeClaim:
+          claimName: data-backup-pvc
+  backoffLimit: 4
