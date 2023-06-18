@@ -39,7 +39,7 @@ jobs:
               env:
                 APP: "kbot"
                 REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
-              run: make image pushghcr
+              run: make imageghcr pushghcr
          
     cd:
       name: CD

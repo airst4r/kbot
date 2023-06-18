@@ -32,6 +32,9 @@ get:
 image:
 	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
+imageghcr:
+	docker build . -t ${REGISTRY_GHCR}/${APP}:${VERSION}-${TARGETARCH}
+
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
