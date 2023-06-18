@@ -1,6 +1,7 @@
 APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=sergesrj
-VERSION=$(shell git rev-parse --short HEAD)
+REGISTRY_GHCR=ghcr.io
+VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux
 TARGETARCH=amd64
 format:
@@ -33,6 +34,9 @@ image:
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+
+pushghcr:
+	docker push ${REGISTRY_GHCR}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
 	rm -rf kbot
