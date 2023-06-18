@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: "sergesrj"
-  tag: "v1.0.5-e60d4e0"
+  tag: "release-kbot-05e223e"
   arch: amd64
 secret:
   name: "kbot"
