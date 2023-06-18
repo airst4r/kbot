@@ -29,7 +29,17 @@ jobs:
             #     REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
             #   run: make image push
 
-            g
+            - name: GHCR.IO login
+              uses: docker/login-action@v2
+              with:
+                registry: ghcr.io
+                username: ${{ github.actor }}
+                password: ${{ secrets.GITHUB_TOKEN }}
+            - name: Build&Push
+              env:
+                APP: "kbot"
+                REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
+              run: make image pushghcr
          
     cd:
       name: CD
