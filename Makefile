@@ -30,16 +30,16 @@ get:
 	go get
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 imageghcr:
-	docker build . -t ${REGISTRY_GHCR}/${APP}:${VERSION}-${TARGETARCH}
+	docker build . -t ${REGISTRY_GHCR}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 pushghcr:
-	docker push ${REGISTRY_GHCR}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${REGISTRY_GHCR}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 clean:
 	rm -rf kbot
