@@ -1,6 +1,6 @@
 APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=sergesrj
-REGISTRY_GHCR=ghcr.io
+REGISTRY_GHCR=ghcr.io/airst4r
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux
 TARGETARCH=amd64
